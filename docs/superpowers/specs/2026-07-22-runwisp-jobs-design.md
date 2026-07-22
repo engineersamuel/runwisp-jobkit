@@ -219,7 +219,6 @@ runwisp-automations/
     │   └── prompt.md
     └── secondbrain-weekly-lint/
         ├── job.toml
-        ├── prompt.md
         └── run.sh
 ```
 
