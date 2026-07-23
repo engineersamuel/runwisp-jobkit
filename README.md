@@ -1,6 +1,6 @@
-# runwisp-jobs
+# runwisp-jobkit
 
-`runwisp-jobs` is a small, shell-free harness for validating and running
+`runwisp-jobkit` is a small, shell-free harness for validating and running
 filesystem job packages.
 
 ## Install
@@ -8,7 +8,7 @@ filesystem job packages.
 After the first PyPI release, install the published tool with Python 3.14:
 
 ```console
-uv tool install --python 3.14 runwisp-jobs
+uv tool install --python 3.14 runwisp-jobkit
 ```
 
 For current development, install from a local Git checkout by running this

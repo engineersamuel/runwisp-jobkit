@@ -3,9 +3,9 @@ requires = ["uv_build>=0.11.21,<0.12"]
 build-backend = "uv_build"
 
 [project]
-name = "runwisp-jobs"
+name = "runwisp-jobkit"
 version = "0.1.0"
-description = "Filesystem job packages for RunWisp"
+description = "Shell-free job package harness for RunWisp"
 readme = "README.md"
 requires-python = ">=3.14"
 license = "MIT"
@@ -13,7 +13,7 @@ license-files = ["LICENSE"]
 dependencies = []
 
 [project.scripts]
-runwisp-job = "runwisp_jobs.cli:entrypoint"
+runwisp-job = "runwisp_jobkit.cli:entrypoint"
 
 [dependency-groups]
 dev = ["pytest>=8.4,<9"]

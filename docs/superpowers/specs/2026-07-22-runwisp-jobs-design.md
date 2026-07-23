@@ -1,5 +1,9 @@
 # RunWisp Jobs Harness Design
 
+> Historical naming note (2026-07-23): the public harness described here was
+> renamed to `runwisp-jobkit`; the private implemented-job repository now owns
+> `runwisp-jobs`. See `2026-07-23-runwisp-repository-naming-design.md`.
+
 **Status:** Approved
 
 **Date:** 2026-07-22

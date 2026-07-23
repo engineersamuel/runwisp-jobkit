@@ -8,8 +8,8 @@ from pathlib import Path
 
 import pytest
 
-from runwisp_jobs import execution
-from runwisp_jobs.manifest import load_manifest
+from runwisp_jobkit import execution
+from runwisp_jobkit.manifest import load_manifest
 
 
 @pytest.fixture

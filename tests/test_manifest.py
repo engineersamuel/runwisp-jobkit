@@ -1,6 +1,6 @@
 import pytest
 
-from runwisp_jobs.manifest import JobConfigurationError, JobManifest, load_manifest
+from runwisp_jobkit.manifest import JobConfigurationError, JobManifest, load_manifest
 
 
 def test_load_manifest_returns_typed_values(job_dir):

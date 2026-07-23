@@ -2,7 +2,7 @@ import os
 
 import pytest
 
-from runwisp_jobs.cli import main
+from runwisp_jobkit.cli import main
 
 
 def _replace_argv(job_dir, replacement):
