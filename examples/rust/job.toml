@@ -1,0 +1,7 @@
+schema = 1
+id = "rust-example"
+kind = "command"
+cwd = "."
+argv = ["cargo", "run", "--quiet", "--"]
+required_env = ["RUNWISP_EXAMPLE_MESSAGE"]
+required_files = ["Cargo.toml", "src/main.rs"]

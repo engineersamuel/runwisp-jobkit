@@ -1,0 +1,7 @@
+schema = 1
+id = "typescript-example"
+kind = "command"
+cwd = "."
+argv = ["bun", "run", "run.ts"]
+required_env = ["RUNWISP_EXAMPLE_MESSAGE"]
+required_files = ["run.ts"]

@@ -1,0 +1,7 @@
+schema = 1
+id = "python-example"
+kind = "command"
+cwd = "."
+argv = ["uv", "run", "--script", "run.py"]
+required_env = ["RUNWISP_EXAMPLE_MESSAGE"]
+required_files = ["run.py"]
