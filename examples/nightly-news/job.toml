@@ -1,0 +1,7 @@
+schema = 1
+id = "nightly-news-brief"
+kind = "command"
+cwd = "."
+argv = ["uv", "run", "--locked", "--project", ".", "python", "run.py"]
+required_env = ["WORKDIR", "COPILOT_BIN", "TOKEN_FILE", "TELEGRAM_CHAT_ID"]
+required_files = ["pyproject.toml", "run.py", "prompt.md"]
