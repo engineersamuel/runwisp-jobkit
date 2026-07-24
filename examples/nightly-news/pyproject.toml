@@ -1,0 +1,11 @@
+[project]
+name = "nightly-news-job"
+version = "0.1.0"
+requires-python = ">=3.14"
+dependencies = ["runwisp-job-report"]
+
+[tool.uv]
+package = false
+
+[tool.uv.sources]
+runwisp-job-report = { workspace = true }

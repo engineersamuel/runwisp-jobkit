@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import os
+import re
 import shutil
 import subprocess
 from pathlib import Path
@@ -77,3 +78,35 @@ def test_example_passes_doctor_and_supports_dry_run(language: str) -> None:
 
     assert dry_run.returncode == 0, dry_run.stderr
     assert dry_run.stdout == "dry-run: hello\n"
+
+
+def test_nightly_news_example_passes_doctor_without_private_data(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    placeholders = {
+        "WORKDIR": "placeholder-workdir",
+        "COPILOT_BIN": "placeholder-copilot",
+        "TOKEN_FILE": "placeholder-token",
+        "TELEGRAM_CHAT_ID": "placeholder-chat",
+    }
+    for name, value in placeholders.items():
+        monkeypatch.setenv(name, value)
+    job_dir = PROJECT_ROOT / "examples" / "nightly-news"
+
+    doctor = _run_cli("doctor", str(job_dir))
+
+    assert doctor.returncode == 0, doctor.stderr
+    assert "doctor: nightly-news-brief: healthy" in doctor.stdout
+    prompt = (job_dir / "prompt.md").read_text()
+    assert prompt.splitlines()[0] == (
+        "Write a concise nightly AI and software-engineering news brief for a "
+        "principal / customer-facing AI engineer."
+    )
+    example_text = "\n".join(
+        path.read_text() for path in job_dir.iterdir() if path.is_file()
+    )
+    assert re.search(r'''(?:^|[\s=,("'])/(?!/|\s)\S+''', example_text) is None
+    assert re.search(r"(?<!\d)-?\d{6,}(?!\d)", example_text) is None
+    assert re.search(
+        r"(?m)^(?:TOKEN_FILE|TELEGRAM_CHAT_ID)\s*=", example_text
+    ) is None

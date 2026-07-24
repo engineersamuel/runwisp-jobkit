@@ -49,6 +49,14 @@ semantics.
 
 ## Examples
 
+The [nightly news brief](examples/nightly-news) is a sanitized, one-time
+snapshot of a production-derived job and the featured real-world example. Its
+private `runwisp-job-report` dependency is intentionally omitted, so it is not
+immediately runnable from this repository. Live scheduler configuration,
+deployment paths, credentials, and delivery setup are excluded.
+
+These four minimal language templates are immediately runnable:
+
 - [Python](examples/python)
 - [TypeScript with Bun](examples/typescript)
 - [Rust](examples/rust)
