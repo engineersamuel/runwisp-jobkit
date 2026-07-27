@@ -16,11 +16,51 @@ dependencies = []
 runwisp-job = "runwisp_jobkit.cli:entrypoint"
 
 [dependency-groups]
-dev = ["pytest>=8.4,<9"]
+dev = [
+    "pytest>=8.4,<9",
+    "python-semantic-release>=10.6.1",
+]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 addopts = ["-ra", "--strict-markers", "--strict-config"]
+
+[tool.semantic_release]
+assets = ["uv.lock"]
+build_command = "uv lock"
+commit_message = "chore(release): {version} [skip ci]"
+commit_parser = "conventional"
+major_on_zero = true
+allow_zero_version = true
+tag_format = "v{version}"
+version_toml = ["pyproject.toml:project.version"]
+
+[tool.semantic_release.branches.main]
+match = "main"
+prerelease = false
+
+[tool.semantic_release.changelog.default_templates]
+changelog_file = "CHANGELOG.md"
+mask_initial_release = false
+
+[tool.semantic_release.commit_parser_options]
+minor_tags = ["feat"]
+patch_tags = ["fix", "perf"]
+allowed_tags = [
+    "build",
+    "chore",
+    "ci",
+    "docs",
+    "feat",
+    "fix",
+    "perf",
+    "refactor",
+    "style",
+    "test",
+]
+default_bump_level = 0
+parse_squash_commits = true
+ignore_merge_commits = true
 
 [tool.uv]
 package = true
