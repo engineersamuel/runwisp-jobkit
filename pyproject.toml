@@ -26,8 +26,8 @@ testpaths = ["tests"]
 addopts = ["-ra", "--strict-markers", "--strict-config"]
 
 [tool.semantic_release]
-assets = ["uv.lock"]
-build_command = "uv lock"
+assets = []
+build_command = "uv lock && git add uv.lock"
 commit_message = "chore(release): {version} [skip ci]"
 commit_parser = "conventional"
 major_on_zero = true

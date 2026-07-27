@@ -120,6 +120,14 @@ jobs:
             gh release upload "$RELEASE_TAG" "$artifact"
           done
 
+          release_assets="$(gh release view "$RELEASE_TAG" --json assets --jq '.assets[].name' | sort)"
+          expected_assets="$(for artifact in dist/*.whl dist/*.tar.gz; do basename "$artifact"; done | sort)"
+          if [[ "$release_assets" != "$expected_assets" ]]; then
+            echo "Unexpected release assets:" >&2
+            echo "$release_assets" >&2
+            exit 1
+          fi
+
           mkdir -p release-dist
           gh release download "$RELEASE_TAG" \
             --pattern '*.whl' \
