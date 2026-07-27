@@ -61,8 +61,8 @@ def test_semantic_release_configuration_matches_release_policy():
 
     assert semantic_release["branches"]["main"]["match"] == "main"
     assert semantic_release["version_toml"] == ["pyproject.toml:project.version"]
-    assert semantic_release["assets"] == ["uv.lock"]
-    assert semantic_release["build_command"] == "uv lock"
+    assert semantic_release["assets"] == []
+    assert semantic_release["build_command"] == "uv lock && git add uv.lock"
     assert semantic_release["tag_format"] == "v{version}"
     assert semantic_release["major_on_zero"] is True
     assert semantic_release["allow_zero_version"] is True
@@ -125,6 +125,7 @@ def test_release_workflow_is_merge_only_and_least_privilege():
     assert "actions/download-artifact@" in workflow
     assert "skip-existing: true" in workflow
     assert "password:" not in workflow
+    assert "Unexpected release assets" in workflow
 
     action_references = re.findall(r"uses:\s+([^\s]+)", workflow)
     assert action_references
