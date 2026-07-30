@@ -1,7 +1,7 @@
-from pathlib import Path
 import subprocess
 import tarfile
 import zipfile
+from pathlib import Path
 
 
 def test_distribution_artifacts_include_license(tmp_path):

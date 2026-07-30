@@ -42,4 +42,6 @@ jobs:
       - uses: oven-sh/setup-bun@v2
       - uses: dtolnay/rust-toolchain@stable
       - run: uv sync --locked
+      - run: uv run ruff check .
+      - run: uv run ty check
       - run: uv run pytest

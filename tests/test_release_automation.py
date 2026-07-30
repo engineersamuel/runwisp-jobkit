@@ -1,12 +1,11 @@
-from pathlib import Path
 import re
 import shutil
 import subprocess
 import sys
 import tomllib
+from pathlib import Path
 
 import pytest
-
 
 ROOT = Path(__file__).resolve().parents[1]
 
