@@ -17,13 +17,29 @@ runwisp-job = "runwisp_jobkit.cli:entrypoint"
 
 [dependency-groups]
 dev = [
+    "pre-commit>=4.6.1",
     "pytest>=8.4,<9",
     "python-semantic-release>=10.6.1",
+    "ruff>=0.16.0",
+    "ty>=0.0.65",
 ]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 addopts = ["-ra", "--strict-markers", "--strict-config"]
+
+[tool.ruff]
+target-version = "py314"
+src = ["src"]
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F", "I"]
+
+[tool.ty.environment]
+python-version = "3.14"
+
+[tool.ty.src]
+include = ["src", ".claude/hooks"]
 
 [tool.semantic_release]
 assets = []

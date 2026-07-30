@@ -2,7 +2,6 @@ from pathlib import Path
 
 from runwisp_jobs.report import ReportPolicy, main
 
-
 PROMPT_PATH = Path(__file__).with_name("prompt.md")
 POLICY = ReportPolicy(
     task_name="nightly-news-brief",

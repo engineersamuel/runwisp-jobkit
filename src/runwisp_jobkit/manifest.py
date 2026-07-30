@@ -7,7 +7,6 @@ import tomllib
 from collections.abc import Mapping
 from typing import Any
 
-
 ALLOWED_FIELDS = frozenset(
     {"schema", "id", "kind", "cwd", "argv", "required_env", "required_files"}
 )

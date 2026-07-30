@@ -5,7 +5,6 @@
 import argparse
 import os
 
-
 parser = argparse.ArgumentParser()
 parser.add_argument("--dry-run", action="store_true")
 arguments = parser.parse_args()
